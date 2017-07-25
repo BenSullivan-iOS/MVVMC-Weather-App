@@ -14,8 +14,8 @@ The app is hardcoded with a valid API key and the location of London, UK. It wil
 
 ## Terminology
 
-Model - The Entities and services which are unrelated to specific views or viewModels
-View - The combination of both the View Controller and the View
+Model - The Entities and services which are unrelated to specific views or viewModels\n
+View - The combination of both the View Controller and the View\n
 ViewModel - Provides data to be displayed by the View Controller by conforming to various services
 Coordinator - Responsible for creating the View/ViewModel stacks and handling navigation between screens
 
