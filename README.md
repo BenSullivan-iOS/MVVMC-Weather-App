@@ -27,6 +27,6 @@ Coordinator - Responsible for creating the View/ViewModel stacks and handling na
 
 Before implementing any other features I would want to add unit tests to ensure all of the APIs are working correctly.
 
-There are many improvements I would make to both the code and UI with more time. I would focus on displaying in an extremely clear and concise way so that the user can quickly see the forecasts. I would ensure it uses the user's location to display local forecasts as well as having the option to choose any other location. A detail view would be provided to show more detailed information where required.
+There are many improvements I would make to both the code and UI with more time. I would focus on displaying information in an extremely clear and concise way so that the user can quickly see relevant forecasts. I would ensure it uses the user's location to display local forecasts as well as having the option to choose any other location. A detail view would be provided to show more detailed information where required.
 
 
