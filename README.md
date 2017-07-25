@@ -2,7 +2,7 @@
 
 This is an app developed in the MVVM-C architecture showcasing Swift 4's new Codable protocol and utilising Protocol Oriented Programming concepts throughout.
 
-The chosen architecture is designed to make the code highly readable, maintainable and reusable. All communication between objects is via protocols.
+The chosen architecture is designed to make the code highly readable, maintainable and reusable. All relevant communication between objects is via protocols.
 
 
 ## Build & Run
