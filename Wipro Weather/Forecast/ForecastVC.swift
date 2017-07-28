@@ -20,6 +20,9 @@ class ForecastVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = view.frame.height / 4
     title = "wipro weather"
   }
 }
@@ -54,3 +57,11 @@ extension ForecastVC: UITableViewDataSource {
     return cell
   }
 }
+//
+//extension ForecastVC: UITableViewDelegate {
+//
+//  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//    return view.frame.height / 4
+//  }
+//}
+
