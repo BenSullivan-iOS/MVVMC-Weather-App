@@ -48,20 +48,20 @@ struct Weather: Codable, Downloadable {
   var main: String
   var icon: String
   
-  func downloadIconImage(completion: @escaping (_ image: Data?, _ error: String?) -> ()) {
+  func downloadIconImage(completion: @escaping ResultBlock<Data>) {
     
     let iconURLString = "http://openweathermap.org/img/w/\(icon).png"
-    downloadImageData(withURLString: iconURLString) { data, error in
+    
+    downloadImageData(withURLString: iconURLString) { result in
       
-      guard let data = data, error == nil else {
+      switch result {
         
-        completion(nil, error)
-        
-        return
+      case .error(message: let msg):
+        completion(Result.error(msg))
+      case .value(let val):
+        completion(Result.value(val))
       }
       
-     completion(data, nil)
     }
-    
   }
 }

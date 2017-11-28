@@ -26,20 +26,28 @@ class ForecastViewModel: ForecastViewModelType, Downloadable, Parsable {
     
     dateHeaderText = ["Today", "Tomorrow"]
     
-    downloadData(withURLString: LocationURL.london) { data, error in
+    downloadData(withURLString: LocationURL.london) { result in
       
-      guard let data = data, error == nil else { return }
-      
-      let parseResult = self.parseJSONData(withForecastData: data)
-      
-      switch parseResult {
+      switch result {
         
-      case .success(let result):
-        self.createForecasts(forecastProvider: result)
-        self.forecastVCDelegate?.reloadData()
+      case .error(message: let msg):
+        print(msg)
         
-      case .error(let message):
-        print(message)
+      case .value(let val):
+        
+        self.parseJSONData(withForecastData: val) { parseResult in
+          
+          switch parseResult {
+          case .value(let forecastProvider):
+            
+            self.createForecasts(forecastProvider: forecastProvider)
+            self.forecastVCDelegate?.reloadData()
+            
+          case .error(let err):
+            print(err)
+            
+          }
+        }
       }
     }
   }
@@ -98,3 +106,4 @@ class ForecastViewModel: ForecastViewModelType, Downloadable, Parsable {
   }
   
 }
+

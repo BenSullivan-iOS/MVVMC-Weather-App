@@ -15,7 +15,7 @@ class ForecastCollectionCell: UICollectionViewCell {
   @IBOutlet weak var timeLabel: UILabel!
   
   func configureCell(withForecast forecast: Forecast?) {
-
+    
     guard let forecast = forecast else { return }
     
     let temp = forecast.temperature.value
@@ -23,14 +23,20 @@ class ForecastCollectionCell: UICollectionViewCell {
     
     tempLabel?.text = String(format: "%.0f", temp - 273.15) + "°"
     
-    forecast.weather[0].downloadIconImage(completion: { data, error in
+    forecast.weather[0].downloadIconImage(completion: { result in
       
-      guard let data = data, error == nil else { return }
-      DispatchQueue.main.async {
+      switch result {
         
-        self.tempImage.image = UIImage(data: data)
+      case .value(let val):
         
+        DispatchQueue.main.async {
+          self.tempImage.image = UIImage(data: val)
+        }
+        
+      case .error(message: let msg):
+        print(msg)
       }
     })
   }
 }
+

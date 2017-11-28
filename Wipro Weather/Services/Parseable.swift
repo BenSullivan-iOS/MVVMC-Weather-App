@@ -8,32 +8,24 @@
 
 import Foundation
 
-enum ParseResult {
-  case success(forecast: ForecastProvider)
-  case error(message: String)
-}
-
-protocol Parsable {
-  
-  func parseJSONData(withForecastData data: Data) -> ParseResult
-}
+protocol Parsable { }
 
 extension Parsable {
   
-  func parseJSONData(withForecastData data: Data) -> ParseResult {
+  func parseJSONData(withForecastData data: Data, completion: ResultBlock<ForecastProvider>) {
     
     do {
       
       let jsonDecoder = JSONDecoder()
       let forecast = try jsonDecoder.decode(ForecastProvider.self, from: data)
       
-      return ParseResult.success(forecast: forecast)
+      completion(Result.value(forecast))
       
     }
     catch {
       print("error", error)
-      return ParseResult.error(message: error.localizedDescription)
+      completion(Result.error(error.localizedDescription))
     }
   }
-
+  
 }

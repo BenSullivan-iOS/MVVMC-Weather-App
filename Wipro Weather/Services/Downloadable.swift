@@ -8,61 +8,53 @@
 
 import Foundation
 
-protocol Downloadable {
-  
-  func downloadImageData(withURLString urlString: String, completion: @escaping (_ image: Data?, _ error: String?) -> ())
-  
-  func downloadData(withURLString urlString: String, completion: @escaping (_ data: Data?, _ error: String?) -> ())
-}
+protocol Downloadable { }
 
 extension Downloadable {
   
-  func downloadImageData(withURLString urlString: String, completion: @escaping (_ image: Data?, _ error: String?) -> ()) {
+  func downloadImageData(withURLString urlString: String, completion: @escaping ResultBlock<Data>) {
     
     guard let proceduresURL = URL(string: urlString) else {
-      
-      completion(nil, "Invalid URL")
-      
+      completion(Result.error("Invalid URL"))
       return
     }
     
     let request = URLRequest(url: proceduresURL)
     let session = URLSession.shared
     
-    let task = session.dataTask(with: request) { (imageData, URLResponse, error) in
+    let task = session.dataTask(with: request) { imageData, URLResponse, error in
       
-      guard error == nil && imageData != nil else {
-        
-        return completion(nil, "Unable to download image")
+      guard let imageData = imageData else {
+        return completion(Result.error("Unable to download image"))
       }
       
-      return completion(imageData, nil)
+      return completion(Result.value(imageData))
       
     }
     task.resume()
   }
   
-  func downloadData(withURLString urlString: String, completion: @escaping (_ data: Data?, _ error: String?) -> ()) {
+  func downloadData(withURLString urlString: String, completion: @escaping ResultBlock<Data>) {
     
     guard let proceduresURL = URL(string: urlString) else {
       
-      completion(nil, "Invalid URL")
-      
+      completion(Result.error("Invalid URL"))
       return
     }
     
     let request = URLRequest(url: proceduresURL)
     let session = URLSession.shared
     
-    let task = session.dataTask(with: request) { (data, URLResponse, error) in
+    let task = session.dataTask(with: request) { data, URLResponse, error in
       
       guard let data = data else {
-        
-        return completion(nil, "Unable to download data")
+        return completion(Result.error("Unable to download image"))
       }
-      return completion(data, nil)
+      
+      return completion(Result.value(data))
     }
     task.resume()
   }
   
 }
+

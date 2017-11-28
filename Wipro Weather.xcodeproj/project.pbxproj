@@ -13,6 +13,7 @@
 		488904321F233F4B0033D2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488904301F233F4B0033D2E2 /* Main.storyboard */; };
 		488904341F233F4B0033D2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488904331F233F4B0033D2E2 /* Assets.xcassets */; };
 		488904371F233F4B0033D2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 488904351F233F4B0033D2E2 /* LaunchScreen.storyboard */; };
+		488AD5481FCDD2C8001C1135 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488AD5471FCDD2C8001C1135 /* Result.swift */; };
 		48ACA5071F272A3800D39FEA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACA5061F272A3800D39FEA /* StringExtensions.swift */; };
 		48ACA5091F27341E00D39FEA /* ForecastTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACA5081F27341E00D39FEA /* ForecastTableCell.swift */; };
 		48ACA50B1F27342A00D39FEA /* ForecastCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACA50A1F27342A00D39FEA /* ForecastCollectionCell.swift */; };
@@ -36,6 +37,7 @@
 		488904331F233F4B0033D2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		488904361F233F4B0033D2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		488904381F233F4B0033D2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		488AD5471FCDD2C8001C1135 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		48ACA5061F272A3800D39FEA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		48ACA5081F27341E00D39FEA /* ForecastTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableCell.swift; sourceTree = "<group>"; };
 		48ACA50A1F27342A00D39FEA /* ForecastCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCollectionCell.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				48ACA5061F272A3800D39FEA /* StringExtensions.swift */,
+				488AD5471FCDD2C8001C1135 /* Result.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				48C1E57F1F26477000E96712 /* LocationURL.swift in Sources */,
 				4889042D1F233F4B0033D2E2 /* AppDelegate.swift in Sources */,
 				48C1E56F1F2643B200E96712 /* ForecastProvider.swift in Sources */,
+				488AD5481FCDD2C8001C1135 /* Result.swift in Sources */,
 				48EF99FA1F264171003E8A3D /* Downloadable.swift in Sources */,
 				48ACA50B1F27342A00D39FEA /* ForecastCollectionCell.swift in Sources */,
 				48C1E57D1F26470400E96712 /* Screen.swift in Sources */,
